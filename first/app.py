@@ -3,6 +3,7 @@ from flask_restful import Resource, Api, reqparse
 from flask_jwt import JWT, jwt_required
 
 from security import authenticate, identity
+from models.User import UserRegister
 
 app = Flask(__name__)
 app.secret_key = "evan"
@@ -58,6 +59,7 @@ class ItemList(Resource):
 
 api.add_resource(Item, "/item/<string:name>")
 api.add_resource(ItemList, "/items")
+api.add_resource(UserRegister, "/register")
 
 # stores = [{"name": "My Store", "items": [{"name": "My Item", "price": 15.99}]}]
 
